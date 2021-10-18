@@ -15,7 +15,7 @@ class Menu extends Component {
   render() {
     const MenuItems = this.state.menu.map((Menuitem) => {
       return (
-        <div key={Menuitem.key}>
+        <div key={Menuitem.key} className="menuList-container ">
           <Link className="Links" to={"/" + Menuitem.type}>
             <MenuList MenuItem={Menuitem.type} />
           </Link>

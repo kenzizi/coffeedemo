@@ -1,10 +1,12 @@
 .menu-container {
   display: flex;
-  justify-content: space-evenly;
   flex-wrap: wrap;
   background-color: #d7d8da;
   margin: 10px 0;
+  align-items: center;
 }
+
 .Links {
   text-decoration: none;
+  color: #e47d38;
 }

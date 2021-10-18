@@ -4,18 +4,15 @@
   font-family: "Acme", sans-serif;
   border: 3px solid #f0a26e;
   border-radius: 8px 30px;
-  margin: 10px;
   padding: 20px;
-  width: 200px;
+  margin: 10px;
   text-align: center;
   font-weight: bold;
   background-color: #f3f3f3;
   color: #e47d38;
   letter-spacing: 0.5px;
   transition: 0.5s;
-  height: 25px;
-  display: flex;
-  justify-content: center;
+  flex: 45%;
   font-size: 24px;
   text-decoration: none;
 }
