@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   background-color: #d7d8da;
   margin: 10px 0;
-  min-height: 600px;
-  align-items: center;
+}
+.Links {
+  text-decoration: none;
 }
