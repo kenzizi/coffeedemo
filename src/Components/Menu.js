@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../cssFiles/Menu.css";
 import MenuList from "./MenuList.js";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Menu extends Component {
   state = {
