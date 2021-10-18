@@ -25,10 +25,11 @@
   background-clip: text;
   border: 1px solid white;
   padding: 15px 20px;
-  width: 125px;
+  width: 140px;
   color: transparent;
   text-decoration: none;
   cursor: pointer;
+  font-weight: 900;
   letter-spacing: 0.3ex;
 }
 .navbar-panier:hover {
