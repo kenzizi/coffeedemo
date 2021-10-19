@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../cssFiles/Menu.css";
 import MenuList from "./MenuList.js";
-import { Link } from "react-router-dom";
 
 class Menu extends Component {
   state = {
@@ -16,9 +15,7 @@ class Menu extends Component {
     const MenuItems = this.state.menu.map((Menuitem) => {
       return (
         <div key={Menuitem.key} className="menuList-container ">
-          <Link className="Links" to={"/" + Menuitem.type}>
-            <MenuList MenuItem={Menuitem.type} />
-          </Link>
+          <MenuList MenuItem={Menuitem.type} />
         </div>
       );
     });

@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+.selectedMenu-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #d7d8da;
+  margin: 10px 0;
+  align-items: center;
+}
+.selectedMenu-item {
+  font-family: "Acme", sans-serif;
+  border: 3px solid #f0a26e;
+  border-radius: 8px 30px;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  font-weight: bold;
+  background-color: #f3f3f3;
+  color: #e47d38;
+  letter-spacing: 0.5px;
+  transition: 0.5s;
+  flex: 45%;
+  font-size: 24px;
+  text-decoration: none;
+}

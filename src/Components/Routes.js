@@ -1,6 +1,6 @@
 // Routes.js
 import React from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import SelectedMenu from "./selectedMenu.js";
 import Menu from "./Menu.js";
 import Panier from "./Panier.js";
