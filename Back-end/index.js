@@ -5,7 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const dotenv= require("dotenv");
-const port = 3000;
+const port = 8000;
 
 dotenv.config({ debug: process.env.DEBUG });
 // Connect Database

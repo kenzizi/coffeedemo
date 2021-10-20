@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/menuSchema')
+const SelectedMenu = require('../models/selectedMenu')
 
-router.post('/add-menu',(req,res)=>{
+router.post('/add-new-item',(req,res)=>{
     res.json({message:'added successfuly'})
 })
 
-router.get('/menu-list',(req,res)=>{
+router.get('/items-list',(req,res)=>{
     res.json({message:'menu list'})
 })
 
