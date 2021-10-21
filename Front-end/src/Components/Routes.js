@@ -3,33 +3,39 @@ import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import SelectedMenu from "./selectedMenu.js";
 import Menu from "./Menu.js";
-import Panier from "./Panier.js";
+import axios from "axios";
 
-export default () => {
-  return (
-    <Switch>
-      <Route exact path="/Drinks">
-        <SelectedMenu />
-      </Route>
-      <Route exact path="/Food" component={SelectedMenu} />
-      <Route exact path="/Supplements" component={SelectedMenu} />
-      <Route exact path="/Chicha" component={SelectedMenu} />
+class Routes extends React.Component {
+  state = {
+    Routes: [
+      {
+        menuName: "/",
+      },
+    ],
+  };
+  componentWillMount = () => {
+    const baseURL = "http://localhost:8000";
+    axios.get(`${baseURL}/menu-list`).then((res) => {
+      this.setState({
+        Routes: res.data,
+      });
+    });
+  };
 
-      <Route
-        exact
-        path="/"
-        render={() => {
-          return <Redirect to="/menu" />;
-        }}
-      >
-        <Menu />
-      </Route>
-      <Route exact path="/menu">
-        <Menu />
-      </Route>
-      <Route exact path="/panier">
-        <Panier />
-      </Route>
-    </Switch>
-  );
-};
+  render() {
+    console.log("message from routes " + this.state.Routes[0].menuName);
+    const RoutesTag = this.state.Routes.map((route) => {
+      return (
+        <Route exact path={"/" + route.menuName} component={SelectedMenu} />
+      );
+    });
+    return (
+      <Switch>
+        {RoutesTag}
+        <Route exact path="/menu" component={Menu} />
+      </Switch>
+    );
+  }
+}
+
+export default Routes;
