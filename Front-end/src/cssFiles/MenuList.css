@@ -15,13 +15,21 @@
   flex: 45%;
   font-size: 24px;
   text-decoration: none;
+  cursor: pointer;
 }
-
-.menuList-container:hover {
-  background-color: #f0a26e;
+.menuList-container .Links {
+  transition: 0.5s;
+  color: #f0a26e;
+  cursor: pointer;
+  text-decoration: none;
+}
+.menuList-container:hover .Links {
   transition: 0.5s;
   color: rgb(255, 255, 255);
   cursor: pointer;
-  font-size: 26px;
-  letter-spacing: 1px;
+  text-decoration: none;
+}
+.menuList-container:hover {
+  transition: 0.5s;
+  background-color: #f0a26e;
 }

@@ -3,11 +3,7 @@ import "../cssFiles/MenuList.css";
 import { Link } from "react-router-dom";
 
 const MenuList = ({ MenuItem }) => {
-  return (
-    <Link className="Links" to={"/" + MenuItem}>
-      <div>{MenuItem}</div>
-    </Link>
-  );
+  return <div> {MenuItem}</div>;
 };
 
 export default MenuList;

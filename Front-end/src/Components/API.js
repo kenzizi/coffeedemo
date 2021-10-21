@@ -41,6 +41,19 @@ export default [
     ],
   },
   {
+    selectedMenu: "Sea-Food",
+    selectedMenuTable: [
+      {
+        id: 1,
+        name: "Sea-Food1",
+      },
+      {
+        id: 2,
+        name: "Sea-Food2",
+      },
+    ],
+  },
+  {
     selectedMenu: "Supplements",
     selectedMenuTable: [
       {
