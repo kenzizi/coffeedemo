@@ -21,7 +21,7 @@ class Routes extends React.Component {
     await axios.get(`${baseURL}/menu-list`).then((res) => {
       this.setState({
         Routes: res.data,
-        MenuRoutesStatus: res.data === [] ? false : true,
+        MenuRoutesStatus: res.data === [] ? false : true, //for now zayed mezel
         Loading: false,
       });
     });
