@@ -1,0 +1,43 @@
+.card-front-container {
+  max-width: 220px;
+  height: 330px;
+  border: 1px solid red;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+.card-front-container:hover {
+  opacity: 0.5;
+  box-shadow: 0 19px 38px rgba(5, 2, 2, 2), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+.card-front-image {
+  background-image: url("../files/coffeedemo.jpg");
+  width: 200px;
+  height: 200px;
+  background-size: 100% 100%;
+}
+.card-front-details {
+}
+.card-front-title-container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 30%;
+  bottom: 30%;
+  background-color: grey;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  align-items: center;
+  color: aliceblue;
+}
+.card-front-title {
+  text-align: center;
+  font-weight: bold;
+  right: 0;
+}
+.card-front-desc {
+  font-size: 12px;
+  margin-top: 50px;
+  width: 100%;
+}
