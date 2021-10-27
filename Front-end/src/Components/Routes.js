@@ -32,6 +32,7 @@ class Routes extends React.Component {
       <Loading />;
     }
     const RoutesTag = this.state.Routes.map((route) => {
+      console.log(route._id);
       return (
         <Route
           key={route._id}
@@ -44,10 +45,15 @@ class Routes extends React.Component {
     return (
       <Switch>
         {RoutesTag}
-        <Route exact path="/" render={() => <Redirect to="/menu" />} />
+        <Route
+          key="1"
+          exact
+          path="/"
+          render={() => <Redirect key="4" to="/menu" />}
+        />
 
-        <Route exact path="/menu" component={Menu} />
-        <Route exact path="/loading" component={Loading} />
+        <Route key="2" exact path="/menu" component={Menu} />
+        <Route key="3" exact path="/loading" component={Loading} />
       </Switch>
     );
   }

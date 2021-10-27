@@ -5,11 +5,11 @@ import Routes from "./Components/Routes.js";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <div>
     <BrowserRouter>
       <App />
       <Routes />
     </BrowserRouter>
-  </React.StrictMode>,
+  </div>,
   document.getElementById("root")
 );
