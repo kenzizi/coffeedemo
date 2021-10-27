@@ -39,7 +39,13 @@ class SelectedMenu extends Component {
         ) {
           rendered = menu.menuItems.map((menuItem) => {
             console.log(menuItem.itemName);
-            return <SelectedMenuItem title={menuItem.itemName} />;
+            return (
+              <SelectedMenuItem
+                id={menuItem._id}
+                title={menuItem.itemName}
+                details={menuItem.itemDetails}
+              />
+            );
           });
         }
       });
