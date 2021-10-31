@@ -1,43 +1,51 @@
 import React, { useState, useEffect } from "react";
 import "../cssFiles/SelectedMenuItem.css";
 import Cardimage from "../files/coffeedemo.jpg";
-import { Checkbox } from "semantic-ui-react";
+import SizeCard from "./menuItemSizeCard";
 
 const SelectedMenuItem = ({ title, details, id }) => {
   const [array, setArray] = useState(details);
+  const [totalPrice, setTotalPrice] = useState(0);
 
-  const handleChange = (event, data) => {
-    let { name, value, checked } = data;
+  useEffect(() => {
+    // Anything in here is fired on component mount.
     setArray(
       array.map((e, i) => {
-        return e.size === name
-          ? { ...e, check: !e.check }
-          : { ...e, check: false };
+        return { ...e, active: false };
       })
     );
-    console.log(array);
+  }, []);
+
+  const handleChange = (id, price, Qte) => {
+    setArray(
+      array.map((selectedItem, index) => {
+        return selectedItem._id === id
+          ? { ...selectedItem, active: !selectedItem.active }
+          : { ...selectedItem, active: false };
+      })
+    );
+    setTotalPrice(parseInt(price) * Qte);
   };
 
-  const objDetails = array.map((itemSize) => {
+  const objDetails = array.map((itemSize, index) => {
     if (itemSize.size === "default") {
       return null;
     } else {
       return (
-        <div className="card-back-sizes" key={itemSize._id}>
-          <p>{itemSize.size}</p>
-          <Checkbox
-            slider
-            onChange={handleChange}
-            name={itemSize.size}
-            checked={itemSize.check === undefined ? false : itemSize.check}
+        <div>
+          <SizeCard
+            size={itemSize.size}
+            price={itemSize.price}
+            func={handleChange}
+            id={itemSize._id}
+            active={itemSize.active}
           />
-          <h5>price : 1000</h5>
         </div>
       );
     }
   });
   return (
-    <div className="flip-card">
+    <div className="flip-card" key={id}>
       <div className="flip-card-inner">
         <div className="flip-card-front">
           <img src={Cardimage} alt="Avatar" className="card-image" />
@@ -46,7 +54,15 @@ const SelectedMenuItem = ({ title, details, id }) => {
         <div className="flip-card-back">
           <div className="menuItem-card-b-title">{title}</div>
           <div className="card-back-sizes-container">{objDetails}</div>
-          <div>price : </div>
+          <div className="card-price-btn">
+            <div className="card-total-price">Total : {totalPrice}</div>
+
+            <div className="ui buttons ">
+              <button class="ui button menu-item-btn cancel-btn">Cancel</button>
+              <div className="or"></div>
+              <button className="ui positive button menu-item-btn">Add</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
