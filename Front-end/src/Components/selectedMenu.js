@@ -38,7 +38,6 @@ class SelectedMenu extends Component {
           selectedRoute.toLocaleLowerCase()
         ) {
           rendered = menu.menuItems.map((menuItem) => {
-            console.log(menuItem.itemName);
             return (
               <SelectedMenuItem
                 id={menuItem._id}
