@@ -7,15 +7,19 @@ import axios from "axios";
 import Loading from "./Loading.js";
 
 class Routes extends React.Component {
-  state = {
-    Routes: [
-      {
-        menuName: "/",
-      },
-    ],
-    MenuRoutesStatus: false,
-    Loading: true,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      Routes: [
+        {
+          menuName: "/",
+        },
+      ],
+      MenuRoutesStatus: false,
+      Loading: true,
+    };
+  }
+
   componentWillMount = async () => {
     const baseURL = "http://localhost:8000";
     await axios.get(`${baseURL}/menu-list`).then((res) => {
