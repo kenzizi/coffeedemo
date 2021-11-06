@@ -2,14 +2,17 @@ import React, { useState, useEffect } from "react";
 import "../cssFiles/SelectedMenuItem.css";
 import Cardimage from "../files/coffeedemo.jpg";
 import SizeCard from "./menuItemSizeCard";
+//redux
+import { connect } from "react-redux";
+import { addToPanier } from "../redux/panier/panier.actions";
 
-const SelectedMenuItem = ({ title, details, id }) => {
+const SelectedMenuItem = ({ addToPanier, title, details, id }) => {
   const [array, setArray] = useState(details);
   const [totalPrice, setTotalPrice] = useState(0);
   const [selectedPrice, setselectedPrice] = useState(0);
   const [ItemQte, setItemQte] = useState(0);
+  const [selectedSize, setSelectedSize] = useState("default");
   useEffect(() => {
-    // Anything in here is fired on component mount.
     setArray(
       array.map((e, i) => {
         return { ...e, active: false };
@@ -26,8 +29,9 @@ const SelectedMenuItem = ({ title, details, id }) => {
     setItemQte(qte);
     setTotalPrice(qte * selectedPrice);
   };
-  const handleChange = (id, price) => {
+  const handleChange = (id, price, size) => {
     setselectedPrice(parseInt(price));
+    setSelectedSize(size);
     setArray(
       array.map((selectedItem, index) => {
         return selectedItem._id === id
@@ -36,6 +40,21 @@ const SelectedMenuItem = ({ title, details, id }) => {
       })
     );
     setTotalPrice(parseInt(price) * ItemQte);
+  };
+  const handlePanierItem = (e) => {
+    array.map((PanierItem) => {
+      if (PanierItem.active === true) {
+        const panier = {
+          id: id,
+          title: title,
+          size: selectedSize,
+          wishedQte: ItemQte,
+          itemPrice: selectedPrice,
+          TotalPrice: totalPrice,
+        };
+        addToPanier(panier);
+      }
+    });
   };
   const handleReset = (event) => {
     console.log("reset button");
@@ -66,7 +85,9 @@ const SelectedMenuItem = ({ title, details, id }) => {
       <div className="flip-card-inner">
         <div className="flip-card-front">
           <img src={Cardimage} alt="Avatar" className="card-image" />
-          <p className="menuItem-card-title">{title}</p>
+          <p className="menuItem-card-title" name="title">
+            {title}
+          </p>
         </div>
         <div className="flip-card-back">
           <div className="menuItem-card-b-title">{title}</div>
@@ -99,7 +120,12 @@ const SelectedMenuItem = ({ title, details, id }) => {
                 Cancel
               </button>
               <div className="or"></div>
-              <button className="ui positive button menu-item-btn">Add</button>
+              <button
+                className="ui positive button menu-item-btn"
+                onClick={() => handlePanierItem()}
+              >
+                Add
+              </button>
             </div>
           </div>
         </div>
@@ -107,5 +133,10 @@ const SelectedMenuItem = ({ title, details, id }) => {
     </div>
   );
 };
+const mapStateToProps = (state) => {
+  return {
+    panier: state.panier,
+  };
+};
 
-export default SelectedMenuItem;
+export default connect(mapStateToProps, { addToPanier })(SelectedMenuItem);
