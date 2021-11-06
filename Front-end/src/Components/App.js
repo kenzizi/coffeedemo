@@ -1,22 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "../cssFiles/navbar.css";
 import "semantic-ui-css/semantic.min.css";
-import axios from "axios";
 
 import { Link } from "react-router-dom";
 
 //REDUX CALL START FROM HERE
 
 import { connect } from "react-redux";
+import { Menu } from "semantic-ui-react";
 
-import { getCoffeeMenu } from "../redux/Coffee/coffee.actions.js";
 // REDUX CALL ENDS HERE
 
-const Nav = (props) => {
+const Nav = ({ Menu }) => {
   //INITIAL REDUX STATE
-  useEffect(() => {
-    props.getCoffeeMenu();
-  }, []);
 
   //INITIAL STATE WORK END HERE
   return (
@@ -26,7 +22,7 @@ const Nav = (props) => {
           RAMMEH COFFEESHOP
         </Link>
         <Link to="/panier" className="navbar-panier">
-          <span className="navbar-panier-badge">0</span>
+          <span className="navbar-panier-badge">{Menu.length}</span>
           <i className="fas fa-shopping-cart"></i> Panier
         </Link>
       </div>
@@ -35,8 +31,8 @@ const Nav = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    Menu: state.coffee.menu,
+    Menu: state.panier,
   };
 };
 
-export default connect(mapStateToProps, { getCoffeeMenu })(Nav);
+export default connect(mapStateToProps)(Nav);

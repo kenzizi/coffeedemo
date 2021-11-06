@@ -6,12 +6,12 @@ const MenuItemSizeCard = ({ size, price, func, id, active, ItemQte }) => {
       <div
         className={active ? "card-back-active" : "card-back-sizes"}
         onClick={() => {
-          func(id, price);
+          func(id, price, size);
         }}
         key={id}
       >
         <div className="card-back-size">{size}</div>
-        <div className="card-back-price">{price}dt</div>
+        <div className="card-back-price">{price}DT</div>
       </div>
     </div>
   );
