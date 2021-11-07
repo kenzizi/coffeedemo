@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const MenuItemSizeCard = ({ size, price, func, id, active, ItemQte }) => {
   return (
-    <div>
+    <div key={id}>
       <div
         className={active ? "card-back-active" : "card-back-sizes"}
         onClick={() => {

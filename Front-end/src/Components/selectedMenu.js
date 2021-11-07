@@ -5,7 +5,6 @@ import axios from "axios";
 import Loading from "./Loading.js";
 import SelectedMenuItem from "./SelectedMenuItem";
 
-import selectedMenuApi from "./API.js";
 class SelectedMenu extends Component {
   state = {
     selectedMenu: [],
@@ -41,6 +40,7 @@ class SelectedMenu extends Component {
             return (
               <SelectedMenuItem
                 id={menuItem._id}
+                key={menuItem._id}
                 title={menuItem.itemName}
                 details={menuItem.itemDetails}
               />
