@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 
 const Loading = (props) => {
   const [LoadingTime, setLoadingTime] = useState(0);
-  const [menuStatus, setmainMenu] = useState(props);
+  const [menuStatus] = useState(props);
 
   useEffect(() => {
     const interval = setInterval(() => {

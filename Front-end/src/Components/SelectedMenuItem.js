@@ -73,6 +73,7 @@ const SelectedMenuItem = ({ addToPanier, title, details, id }) => {
             price={itemSize.price}
             func={handleChange}
             id={itemSize._id}
+            key={itemSize._id}
             active={itemSize.active}
             ItemQte={ItemQte}
           />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../cssFiles/navbar.css";
 import "semantic-ui-css/semantic.min.css";
 
@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 //REDUX CALL START FROM HERE
 
 import { connect } from "react-redux";
-import { Menu } from "semantic-ui-react";
 
 // REDUX CALL ENDS HERE
 
